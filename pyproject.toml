@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fde-health-dashboard"
+version = "0.1.0"
+description = "Customer health dashboard backend for a multi-tenant SaaS: usage/adoption metrics, SLA monitors with deduped alerts, and a weighted health score — deterministic synthetic data, injected clock, SQLite"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110",
+    "pydantic>=2",
+    "uvicorn>=0.29",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "httpx>=0.27"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
